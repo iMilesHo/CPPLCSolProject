@@ -47,14 +47,17 @@ project/
   - *CMake Tools (Microsoft)*  
 
 - Open the project folder in VSCode.
+- Reload VSCode if needed (`Cmd+Shift+P` → `Developer: Reload Window`).
 - Configure CMake:  
   Press `Cmd+Shift+P` → `CMake: Configure`.
 - Build from VSCode:  
   `Cmd+Shift+P` → `CMake: Build`.
-- Reload VSCode if needed (`Cmd+Shift+P` → `Developer: Reload Window`).
+- Run from VSCode:  
+  `Cmd+Shift+P` → `CMake: Run tests`.
 
 
-**Compiler Choice:**
+
+**Trouble shooting:**
 
 Use Apple’s Clang (the default on macOS) rather than Homebrew’s GCC. Clang is well-integrated with macOS system headers and avoids many compatibility issues.
 
