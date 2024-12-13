@@ -5,7 +5,8 @@
 
 class Solution {
 public:
-    int search(std::vector<int>& nums, int target);
+    std::vector<int> twoSum(std::vector<int>& nums, int target);
+    void test();
 };
 
 #endif
