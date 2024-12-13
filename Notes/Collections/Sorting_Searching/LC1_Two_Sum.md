@@ -124,3 +124,8 @@ int main() {
   - **Single Element**: `nums = [5]`, `target = 5`. No pair exists, return `[-1, -1]`.
   - **Duplicates**: `nums = [3, 3]`, `target = 6`. Correctly returns `[0, 1]`.
   - **Negative Values**: `nums = [-1, -2, -3, -4, -5]`, `target = -8`. Should return `[2, 4]` because `-3 + (-5) = -8`.
+
+
+## Topic
+- Array
+- Hash Table
