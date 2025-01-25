@@ -6,7 +6,8 @@
 class Solution {
 public:
     std::vector<int> twoSum(std::vector<int>& nums, int target);
-    void test();
+    std::vector<int> twoSumSpaceSaving(std::vector<int>& nums, int target);
+    int removeDuplicates(std::vector<int>& nums);
 };
 
 #endif

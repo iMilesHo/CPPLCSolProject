@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <vector>
+#include <array>
 
+// Template for std::vector
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
     os << "[";
@@ -17,4 +19,17 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
     return os;
 }
 
+// Template for std::array
+template<typename T, size_t N>
+std::ostream& operator<<(std::ostream& os, const std::array<T, N>& arr) {
+    os << "[";
+    for (size_t i = 0; i < N; ++i) {
+        os << arr[i];
+        if (i + 1 < N) {
+            os << ", ";
+        }
+    }
+    os << "]";
+    return os;
+}
 #endif // PRINTER_HPP

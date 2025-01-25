@@ -119,6 +119,41 @@ int main() {
 - **When to Avoid Hash Maps?**  
   If memory is constrained or if deterministic O(n log n) performance is preferred, consider a sorting + two-pointer approach. That uses less overhead and more predictable memory usage at the cost of slower O(n log n) performance.
 
+```cpp
+#include <vector>
+#include <algorithm>
+#include <utility>
+
+std::vector<int> twoSum(std::vector<int>& nums, int target) {
+    // Create a vector of pairs (value, original_index)
+    std::vector<std::pair<int,int>> arr;
+    for (int i = 0; i < (int)nums.size(); ++i) {
+        arr.push_back({nums[i], i});
+    }
+    
+    // Sort by value
+    std::sort(arr.begin(), arr.end(), [](auto &a, auto &b) {
+        return a.first < b.first;
+    });
+    
+    // Two-pointer approach
+    int left = 0;
+    int right = (int)nums.size() - 1;
+    while (left < right) {
+        int sum = arr[left].first + arr[right].first;
+        if (sum == target) {
+            return {arr[left].second, arr[right].second};
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+    
+    return {-1, -1};
+}
+```
+
 - **Edge Cases**:
   - **Empty Array**: `nums = []`, any `target`. Result: `[-1, -1]`.
   - **Single Element**: `nums = [5]`, `target = 5`. No pair exists, return `[-1, -1]`.

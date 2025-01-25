@@ -5,7 +5,7 @@ int Solution::search(std::vector<int>& nums, int target)
 {
     int left = 0;
     int right = static_cast<int>(nums.size()) - 1;
-    
+
     while (left <= right)
     {
         int mid = (right + left) / 2;
@@ -27,11 +27,13 @@ int Solution::search(std::vector<int>& nums, int target)
 ```
 
 ## Notes:
+
 - Integer Overflow Safety (when calculating mid):
-int mid = left + (right - left) / 2;
+  int mid = left + (right - left) / 2;
 - discuss Robustness and Edge Cases
-    - works fine for my method
+  - works fine for my method
 - Higher-Level Alternatives
+
 ```cpp
 auto it = std::lower_bound(nums.begin(), nums.end(), target);
 if (it != nums.end() && *it == target) {
@@ -40,13 +42,16 @@ if (it != nums.end() && *it == target) {
     return -1;
 }
 ```
-    - This isn’t necessary, but it shows us know the standard library and can choose between manual and library-driven approaches as needed.
-- When both right and left are integers, the expression (right - left) / 2 performs integer arithmetic. That means:
-	- First, right - left is evaluated as an int, producing another integer result.
-	- Then, dividing by 2 also uses integer division. Any fractional part resulting from the division is discarded (truncated toward zero).
 
+    - This isn’t necessary, but it shows us know the standard library and can choose between manual and library-driven approaches as needed.
+
+- When both right and left are integers, the expression (right - left) / 2 performs integer arithmetic. That means:
+
+  - First, right - left is evaluated as an int, producing another integer result.
+  - Then, dividing by 2 also uses integer division. Any fractional part resulting from the division is discarded (truncated toward zero).
 
 - Example of error
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -54,15 +59,15 @@ if (it != nums.end() && *it == target) {
 int main() {
     std::size_t left = 5;  // unsigned
     int right = 3;         // signed
-    
+
     // We intend to compute a midpoint:
     // int mid = left + (right - left) / 2;  <-- intended logic
-    
+
     // But since 'right' is signed and 'left' is unsigned,
     // 'right - left' first converts 'right' to an unsigned type,
     // effectively causing underflow.
-    
-    auto diff = right - left; 
+
+    auto diff = right - left;
     // Here, 'right - left' is computed as an unsigned operation since left is size_t (unsigned).
     // right (3) is promoted to an unsigned number, and subtracting a larger unsigned (5)
     // leads to wrap-around, resulting in a very large number instead of a negative one.
@@ -89,8 +94,8 @@ If you were using this difference to calculate a midpoint, you’d get a nonsens
 
 By ensuring both `right` and `left` are signed (e.g., both are `int`), negative differences remain negative, and you can handle them logically (e.g., `right < left` meaning the search range is invalid), rather than causing subtle overflow bugs.
 
-
 Overall: my logic is sound and my solution is good. Emphasizing safety (overflow), clear code style, and knowledge of complexity and standard library facilities will help us appear more seasoned in interviews for a mid-level SDE role.
 
-##  Topics
+## Topics
+
 - binary search
