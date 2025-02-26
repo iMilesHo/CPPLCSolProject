@@ -1,8 +1,5 @@
-Below is a concise guide to setting up a local C++ and GoogleTest project on an M-series MacBook Pro using VSCode and CMake:
+## **Prerequisites:**
 
----
-
-**Prerequisites:**
 - **Xcode Command Line Tools**:  
   Install by running:
   ```bash
@@ -11,60 +8,101 @@ Below is a concise guide to setting up a local C++ and GoogleTest project on an 
 - **Homebrew**:  
   If not installed, follow [Homebrew’s instructions](https://brew.sh).
 
-- **CMake & GoogleTest**:  
+- **CMake & GoogleTest**:
   ```bash
   brew install cmake googletest
   ```
 
-**Directory Structure:**
+## **Directory Structure:**
+
 ```
-project/
-├─ CMakeLists.txt
-├─ include/
-│  └─ Solution.h
-├─ src/
-│  └─ Solution.cpp
-└─ tests/
-   └─ test_solution.cpp
+.
+├── LICENSE
+├── Makefile
+├── README.md
+├── include
+│   └── printer.hpp
+└── problems
+    ├── arrays
+    │   ├── 0001_Two_Sum
+    │   │   ├── Solution.cpp
+    │   │   ├── Solution.h
+    │   │   ├── notes.md
+    │   │   └── test.cpp
+    │   └── 0026_Remove_Duplicates_from_Sorted_Array
+    │       ├── Solution.cpp
+    │       ├── Solution.h
+    │       ├── notes.md
+    │       └── test.cpp
+    └── strings
+        └── 0003_Longest_Substring_Without_Repeating_Characters
+            ├── Solution.cpp
+            ├── Solution.h
+            ├── notes.md
+            └── test.cpp
 ```
 
-**Building and Running:**
-1. Create a build directory:
+## **Building and Running:**
+
+### How to Use
+
+1. **Build All**
+
    ```bash
-   mkdir build && cd build
-   cmake ..
-   cmake --build .
-   ```
-   
-2. Run tests:
-   ```bash
-   ./runTests
+   make
    ```
 
-**VSCode Setup:**
-- Install Extensions:  
-  - *C/C++ (Microsoft)*  
-  - *CMake Tools (Microsoft)*  
+   or
 
+   ```bash
+   make all
+   ```
+
+2. **Run All**
+
+   ```bash
+   make run_all
+   ```
+
+3. **Build Single**
+
+   ```bash
+   make build_0001
+   ```
+
+   This will find exactly one directory, e.g. `problems/arrays/0001_Two_Sum`, and build `test_0001_Two_Sum`.
+
+4. **Run Single**
+
+   ```bash
+   make run_0001
+   ```
+
+   This will build (if not already built) and then run `test_0001_Two_Sum`.
+
+5. **Clean Single**
+
+   ```bash
+   make clean_0001
+   ```
+
+   This removes only the test executable for the matching `0001_*` directory—useful if you want to quickly rebuild just one.
+
+6. **Clean All**
+   ```bash
+   make clean
+   ```
+   Removes _all_ the test executables for _all_ problems.
+
+## **VSCode Setup:**
+
+- Install Extensions:
+  - _C/C++ (Microsoft)_
 - Open the project folder in VSCode.
 - Reload VSCode if needed (`Cmd+Shift+P` → `Developer: Reload Window`).
-- Configure CMake:  
-  Press `Cmd+Shift+P` → `CMake: Configure`.
-- Build from VSCode:  
-  `Cmd+Shift+P` → `CMake: Build`.
-- Run from VSCode:  
-  `Cmd+Shift+P` → `CMake: Run tests`.
 
-
-
-**Trouble shooting:**
+## **Trouble shooting:**
 
 Use Apple’s Clang (the default on macOS) rather than Homebrew’s GCC. Clang is well-integrated with macOS system headers and avoids many compatibility issues.
-
-If we previously installed GCC via Homebrew, ensure we do not force wer project to use it. Instead, let CMake detect the default compiler:
-
-```bash
-cmake .. -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
-```
 
 If no compilers are specified, CMake will typically pick Clang by default on macOS. Make sure not to set `CC` or `CXX` environment variables to GCC.

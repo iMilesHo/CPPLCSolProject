@@ -1,0 +1,90 @@
+// .vscode/tasks.json
+{
+  "version": "2.0.0",
+
+  "inputs": [
+    {
+      "id": "problemNumber",
+      "type": "promptString",
+      "description": "Enter the problem number (e.g., 0001, 0003, ...)",
+      "default": "0001"
+    }
+  ],
+
+  "tasks": [
+    // ------------------------------------------------------------------
+    //  Build all
+    // ------------------------------------------------------------------
+    {
+      "label": "All: Build",
+      "type": "shell",
+      "command": "make",
+      "args": ["all"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$gcc"
+    },
+
+    // ------------------------------------------------------------------
+    //  Run all
+    // ------------------------------------------------------------------
+    {
+      "label": "All: Run",
+      "type": "shell",
+      "command": "make",
+      "args": ["run_all"],
+      "group": "test",
+      "problemMatcher": []
+    },
+
+    // ------------------------------------------------------------------
+    //  Clean all
+    // ------------------------------------------------------------------
+    {
+      "label": "All: Clean",
+      "type": "shell",
+      "command": "make",
+      "args": ["clean"],
+      "group": "build",
+      "problemMatcher": []
+    },
+
+    // ------------------------------------------------------------------
+    //  Build single problem (prompt user for problem ID)
+    // ------------------------------------------------------------------
+    {
+      "label": "Single: Build Problem",
+      "type": "shell",
+      "command": "make",
+      "args": ["build_${input:problemNumber}"],
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+
+    // ------------------------------------------------------------------
+    //  Run single problem (prompt user for problem ID)
+    // ------------------------------------------------------------------
+    {
+      "label": "Single: Run Problem",
+      "type": "shell",
+      "command": "make",
+      "args": ["run_${input:problemNumber}"],
+      "group": "test",
+      "problemMatcher": []
+    },
+
+    // ------------------------------------------------------------------
+    //  Clean single problem (prompt user for problem ID)
+    // ------------------------------------------------------------------
+    {
+      "label": "Single: Clean Problem",
+      "type": "shell",
+      "command": "make",
+      "args": ["clean_${input:problemNumber}"],
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
