@@ -44,7 +44,18 @@
 
 ## **Building and Running:**
 
-### How to Use
+### Using VSCode Tasks
+
+1. Press `F1` or `Ctrl+Shift+P` (Command Palette).
+2. Type “Tasks: Run Task” and choose from:
+   - **All: Build**
+   - **All: Run**
+   - **All: Clean**
+   - **Single: Build Problem**
+   - **Single: Run Problem**
+   - **Single: Clean Problem**
+
+### Using `make` Commands
 
 1. **Build All**
 
