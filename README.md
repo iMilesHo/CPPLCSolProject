@@ -16,6 +16,8 @@ This repository contains **my personal C++ solutions** to various Data Structure
 
 ## Prerequisites
 
+0. System Requirements:
+   - **macOS**: 10.15 (Catalina) or later
 1. **Xcode Command Line Tools**
    ```bash
    xcode-select --install
