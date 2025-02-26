@@ -18,6 +18,7 @@ This repository contains **my personal C++ solutions** to various Data Structure
 
 0. System Requirements:
    - **macOS**: 10.15 (Catalina) or later
+     - CPU: Apple Silicon
 1. **Xcode Command Line Tools**
    ```bash
    xcode-select --install
