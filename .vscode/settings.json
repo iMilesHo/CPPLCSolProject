@@ -55,7 +55,13 @@
     "charconv": "cpp",
     "forward_list": "cpp",
     "__config": "cpp",
-    "execution": "cpp"
+    "execution": "cpp",
+    "complex": "cpp",
+    "deque": "cpp",
+    "numbers": "cpp",
+    "queue": "cpp",
+    "semaphore": "cpp",
+    "stack": "cpp"
   },
   "C_Cpp.errorSquiggles": "enabled",
   "editor.tokenColorCustomizations": {
