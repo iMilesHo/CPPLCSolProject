@@ -16,7 +16,7 @@ all: $(TEST_TARGETS)
 
 # Template for building each problem's test
 define build_test
-$1/test_$(notdir $1): $1/Solution.cpp $1/test.cpp
+$1/test_$(notdir $1): $1/test.cpp
 	$(CXX) $(CXXFLAGS) -o $$@ $$^ $(LD_FLAGS)
 endef
 
