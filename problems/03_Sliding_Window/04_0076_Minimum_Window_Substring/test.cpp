@@ -33,8 +33,7 @@ TEST(Problem76Test, TestASSCIICodeNumber)
 
 TEST(Problem76Test, RandomTest)
 {
-    std::string s1 = "hello";
-    std::string s2 = std::move(s1); // s1 is now an rvalue, resources moved to s2
-
-    std::cout << "s1: " << s1 << ", s2: " << s2 << std::endl;
+    std::vector<int> x = {1, 2, 3};
+    x.pop_back();
+    std::cout << "pop_back()" << x[0] << std::endl;
 }

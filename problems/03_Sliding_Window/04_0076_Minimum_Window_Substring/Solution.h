@@ -25,36 +25,36 @@ public:
         while (right < s.size())
         {
             char c = s[right];
-            right++;
-
-            // If this character is needed, update window map
             if (need.count(c))
             {
                 window[c]++;
-                if (window[c] == need[c])
+                if (need[c] == window[c])
                     valid++;
             }
 
-            // When all requirements are met, try to shrink
+            // shrink the window from left bound if found a valid substring
             while (valid == need.size())
             {
-                // Update answer if better
-                if (right - left < minLen)
+                int tempLen = right - left + 1;
+                if (tempLen < minLen)
                 {
-                    minLen = right - left;
+                    minLen = tempLen;
                     start = left;
                 }
 
-                // Remove leftmost character
-                char d = s[left];
-                left++;
-                if (need.count(d))
+                if (need.count(s[left]))
                 {
-                    if (window[d] == need[d])
+                    if (window[s[left]] == need[s[left]])
+                    {
                         valid--;
-                    window[d]--;
+                    }
+                    window[s[left]]--;
                 }
+
+                left++;
             }
+
+            right++;
         }
 
         return minLen == INT_MAX ? "" : s.substr(start, minLen);
