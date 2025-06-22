@@ -1,17 +1,36 @@
 **LLM Prompt:**
 
-I have the following LeetCode solution for the [PROBLEM NAME] problem:
+I’m preparing for technical interviews. Please provide a systematic review of my solution to the problem below, along with improvements and follow-up practice.
 
-```cpp
-// Paste your solution code here
+---
+
+#### 1 · Problem Details
+
+- **Platform / ID / Title**: <e.g., LeetCode 88 · Merge Sorted Array>
+- **Difficulty**: <Easy / Medium / Hard>
+- **Link**: <URL>
+- **(Optional) Brief description**:
+
 ```
 
-Please review my solution like you did before:
+\<Paste a concise version of the prompt here so ChatGPT doesn’t need to open the link>
 
-1. Evaluate its correctness, time complexity, and space complexity.
-2. Suggest improvements in terms of code readability, variable naming, and documentation.
-3. Mention potential edge cases and how to handle them.
-4. Compare my approach to alternative methods (e.g., using a different data structure or approach) and discuss trade-offs.
-5. Provide additional test scenarios to ensure the code’s robustness.
-6. Give clear, concise actionable steps that I can apply to improve my coding practices at a mid-level SDE standard.
-7. Provide a solution that is great for interviews and also another solution that is great for production.
+```
+
+#### 2 · My Code (C++)
+
+```cpp
+
+```
+
+#### 3 · Aspects I’d like you to focus on
+
+1. Correctness, including edge cases
+2. Time / space complexity analysis, code readability, variable naming, and documentation
+3. Loop or recursion **invariant** derivation and proof
+4. Code style and C++-specific idioms (e.g., C++ `const`, move semantics)
+5. Common interview follow-ups & harder variants
+6. A 30- to 90-second **elevator pitch** for the solution
+   - Explain the algorithm, its complexity, and why it’s efficient in a way that a non-technical person could understand so that I can practice explaining it clearly and concisely in interviews.
+7. Any additional optimizations or alternative perspectives (optional)
+8. Provide a solution that is great for production.

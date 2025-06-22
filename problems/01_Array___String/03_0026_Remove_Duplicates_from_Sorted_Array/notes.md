@@ -7,7 +7,22 @@
 
 ## Problem Description
 
-(TODO: Paste problem description here)
+```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int k = 0;
+        for (int x: nums)
+        {
+            if (x != nums[k])
+            {
+                nums[++k] = x;
+            }
+        }
+        return ++k;
+    }
+};
+```
 
 ## Approach
 
