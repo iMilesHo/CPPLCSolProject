@@ -15,7 +15,25 @@ The final sorted array should not be returned by the function, but instead be st
 
 ## Approach
 
-(TODO: Outline your approach here)
+```cpp
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int idx_a1 = m - 1, idx_a2 = n - 1, idx_r = m + n - 1;
+        while (idx_a2 >= 0)
+        {
+            if (idx_a1 < 0 || nums1[idx_a1] <= nums2[idx_a2])
+            {
+                nums1[idx_r--] = nums2[idx_a2--];
+            }
+            else
+            {
+                nums1[idx_r--] = nums1[idx_a1--];
+            }
+        }
+    }
+};
+```
 
 ## Complexity
 

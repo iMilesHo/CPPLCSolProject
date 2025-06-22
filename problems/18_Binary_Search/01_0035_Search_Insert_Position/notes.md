@@ -17,3 +17,13 @@
 
 - **Time Complexity:** (TODO)
 - **Space Complexity:** (TODO)
+
+## variant problem 1
+
+285. Inorder Successor in BST
+     https://www.tryexponent.com/practice/prepare/bst-successor-search
+
+## variant problem 2
+
+Largest Smaller BST Key
+https://www.tryexponent.com/practice/prepare/largest-smaller-bst-key
