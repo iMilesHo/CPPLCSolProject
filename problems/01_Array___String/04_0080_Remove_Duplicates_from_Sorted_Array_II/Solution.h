@@ -3,7 +3,8 @@
 
 #include <vector>
 
-class Solution {
+class Solution
+{
 public:
     // TODO: Define your methods here
 };

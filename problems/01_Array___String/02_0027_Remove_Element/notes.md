@@ -18,7 +18,7 @@ public:
     int removeElement(vector<int> &nums, int val)
     {
         // edge cases
-        if (nums.size() == 0)
+        if (nums.empty())
         {
             return 0;
         }
