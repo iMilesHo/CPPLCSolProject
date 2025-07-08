@@ -1,8 +1,15 @@
 #include <gtest/gtest.h>
 #include "Solution.h"
 
-TEST(Problem26Test, BasicTest)
+using namespace std;
+
+TEST(Problem26Test, StdMethod)
 {
-    Solution sol;
-    // TODO: Add your basic tests here
+    vector<int> nums = {1, 1, 2, 2, 3};
+    std::cout << "result: " << std::distance(nums.begin(), std::unique(nums.begin(), nums.end())) << std::endl;
+    // print out the changed vector
+    for (auto it = nums.begin(); it != nums.end(); ++it)
+    {
+        std::cout << *it << " ";
+    }
 }

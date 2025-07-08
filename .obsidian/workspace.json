@@ -1,0 +1,188 @@
+{
+  "main": {
+    "id": "28c35a8c95523256",
+    "type": "split",
+    "children": [
+      {
+        "id": "e8b8ae652acb533f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6cbc6454484d479a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "problems/01_Array___String/03_0026_Remove_Duplicates_from_Sorted_Array/notes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "notes"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3eeb1e7c98328665",
+    "type": "split",
+    "children": [
+      {
+        "id": "7e7682f17801da53",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e66c158c4f11e072",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "f7b713a1ca2ea371",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "9d1736984fe42c0a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 410.5
+  },
+  "right": {
+    "id": "589b6116ed0f6dd7",
+    "type": "split",
+    "children": [
+      {
+        "id": "68a0d4c153ff727e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5596f28fe1996c3f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "problems/01_Array___String/03_0026_Remove_Duplicates_from_Sorted_Array/notes.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for notes"
+            }
+          },
+          {
+            "id": "dd86ddb4a5561277",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "problems/01_Array___String/03_0026_Remove_Duplicates_from_Sorted_Array/notes.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from notes"
+            }
+          },
+          {
+            "id": "eb7d1efb4bd55c9d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b2f7870c5396ba30",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "problems/01_Array___String/03_0026_Remove_Duplicates_from_Sorted_Array/notes.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of notes"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "6cbc6454484d479a",
+  "lastOpenFiles": [
+    "problems/01_Array___String/04_0080_Remove_Duplicates_from_Sorted_Array_II/test_04_0080_Remove_Duplicates_from_Sorted_Array_II",
+    "problems/01_Array___String/03_0026_Remove_Duplicates_from_Sorted_Array/test_03_0026_Remove_Duplicates_from_Sorted_Array",
+    "problems/01_Array___String/02_0027_Remove_Element/notes.md",
+    "Notes/Stack_Heap_Static_CPP.md",
+    "Notes/stdmove.md",
+    "Notes/memoryManagement.md",
+    "Notes/lvalue_rvalue_move.md",
+    "Notes/ReturnValue.md",
+    "Notes/Multi_D_Array.md",
+    "Notes/Collections/Sorting_Searching/LC704_Binary_Search.md",
+    "problems/18_Binary_Search/08_0704_Binary_Search/LC704_Binary_Search.md",
+    "problems/18_Binary_Search/08_0704_Binary_Search",
+    "problems/02_Two_Pointers/03_0167_Two_Sum_II___Input_Array_Is_Sorted/LC1_Two_Sum.md",
+    "Notes/Collections/Arrays_Strings/LC1_Two_Sum.md"
+  ]
+}
