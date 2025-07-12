@@ -91,6 +91,6 @@
     "plaintext": false,
     "markdown": true,
     "scminput": false,
-    "cpp": true
+    "cpp": false
   }
 }
