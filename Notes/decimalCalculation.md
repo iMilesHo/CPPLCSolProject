@@ -4,6 +4,7 @@ decimal part 小数部分
 
 ## 1. `nums.size() / 2` 在 C++ 中是什么类型？
 
+- 要注意无符号数与有符号数运算时，有符号数会被上升到无符号数，所以如果有负数的话，结果会被改变，要非常注意
 - `nums.size()` 的返回值类型是 `std::vector<T>::size_type`，实际上是 **无符号整数类型**（`std::size_t`，通常是 `unsigned long` 或 `unsigned long long`，取决于平台）。
 - `2` 是一个 `int` 字面量。
   当一个 `size_t`（无符号）和一个 `int`（有符号）进行运算时，C++ 会进行 **整型提升** 和 **类型转换**。
