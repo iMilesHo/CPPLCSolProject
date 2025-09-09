@@ -17,4 +17,15 @@ TEST(Problem169Test, BasicTest) {
 
     std::cout << "test /: " << div << std::endl;
     std::cout << "test /: " << div2 << std::endl;
+
+    // test map with a non-existing key
+    std::map<int, int> testMap;
+    std::cout << "Value for non-existing key 5: " << testMap[5] << std::endl; // Should print 0
+
+    // how to judge if a key exists in a map
+    if (testMap.find(5) != testMap.end()) {
+        std::cout << "Key 5 exists in the map." << std::endl;
+    } else {
+        std::cout << "Key 5 does not exist in the map." << std::endl;
+    }
 }
