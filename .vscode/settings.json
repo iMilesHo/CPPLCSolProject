@@ -61,7 +61,8 @@
     "numbers": "cpp",
     "queue": "cpp",
     "semaphore": "cpp",
-    "stack": "cpp"
+    "stack": "cpp",
+    "numeric": "cpp"
   },
   "C_Cpp.errorSquiggles": "enabled",
   "editor.tokenColorCustomizations": {

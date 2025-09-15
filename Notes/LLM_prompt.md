@@ -2,21 +2,6 @@
 
 I’m preparing for technical interviews. Please provide a systematic review of my solution to the problem below, along with improvements and follow-up practice.
 
----
-
-#### 1 · Problem Details
-
-- **Platform / ID / Title**: <e.g., LeetCode 88 · Merge Sorted Array>
-- **Difficulty**: <Easy / Medium / Hard>
-- **Link**: <URL>
-- **(Optional) Brief description**:
-
-```
-
-\<Paste a concise version of the prompt here so ChatGPT doesn’t need to open the link>
-
-```
-
 #### 2 · My Code (C++)
 
 ```cpp

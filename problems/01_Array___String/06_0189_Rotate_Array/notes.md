@@ -37,6 +37,8 @@ public:
 
 My optimized solution:
 
+- manually reverse the array three times
+
 ```cpp
 class Solution {
 public:
@@ -222,26 +224,32 @@ public:
 
 ```cpp
 #include <vector>
-#include <numeric> // std::gcd
+#include <numeric>  // for std::gcd
 
 class Solution {
 public:
     void rotate(std::vector<int>& nums, int k) {
-        const int n = static_cast<int>(nums.size());
+        const auto n = static_cast<int>(nums.size());
         if (n == 0) return;
         k %= n;
         if (k == 0) return;
 
-        const int cycles = std::gcd(n, k);
-        for (int start = 0; start < cycles; ++start) {
-            int i = start;
-            int carried = nums[i];
-            while (true) {
-                int j = (i + k) % n;
-                if (j == start) { nums[i] = carried; break; }
-                nums[i] = nums[j];
-                i = j;
+        // groups: gcd(n,k);
+        // per groups length: n / gcd(n, k);
+
+        const int groups = std::gcd(n,k);
+        for (int startI = 0; startI < groups; ++startI)
+        {
+            int prevV = nums[startI]; // store the value to be moved since it will be overwritten
+            int i = (startI + k) % n;
+            while (i != startI)
+            {
+                int temp = nums[i]; // swap the current value with the stored value
+                nums[i] = prevV;
+                prevV = temp;
+                i = (i+k) % n;
             }
+            nums[startI] = prevV;
         }
     }
 };
@@ -276,3 +284,82 @@ public:
    “How to rotate a singly-linked list by k?” (ring, find new tail, break.)
 
 If you want, I can generate a small set of randomized tests (property: rotation preserves multiset; rotating by `n` returns original; rotating by `k` then by `n−k` returns original) to paste into your local harness.
+
+## GCD cycle (juggling) — great for “how else?” follow-ups
+
+## 1. 什么是「模 n 的同余序列」
+
+- 假设我们从下标 `0` 开始，每次跳 `k` 步，位置是：
+
+  ```
+  0, k, 2k, 3k, 4k, ...   （注意这里的加法都是 “模 n”）
+  ```
+
+- “模 n” 意思就是：每次加 k 以后，如果超过 n−1，就对 n 取余，回到 0\~n−1 的范围。
+
+  - 比如 n=7, k=3:
+
+    ```
+    0 → 3 → 6 → 2 → 5 → 1 → 4 → 0
+    ```
+
+    你看到它最后回到了 0，形成了一个大循环。
+
+这串数就是所谓的 **模 n 的同余序列**。它在 \[0, n−1] 的范围内循环走。
+
+---
+
+## 2. 什么时候能回到起点？
+
+数学问题就是：找到最小的 `t > 0`，使得
+
+$$
+t \times k \equiv 0 \pmod{n}
+$$
+
+也就是 **t × k 是 n 的倍数**。
+那么 t 就是循环的长度。
+
+---
+
+## 3. 为什么长度 = n / gcd(n, k)？
+
+- 令 d = gcd(n, k)。
+- k = d × k′，n = d × n′，其中 k′ 和 n′ 互质。
+- 要使得 t × k 是 n 的倍数：
+
+  ```
+  t × d × k′  ≡ 0 (mod d × n′)
+  ```
+
+  → 等价于要求 t × k′ 是 n′ 的倍数。
+
+- 因为 k′ 和 n′ 互质，所以最小的 t 就是 n′。
+
+  - 所以循环长度 = n′ = n / gcd(n, k)。
+
+---
+
+## 4. 为什么循环的个数 = gcd(n, k)？
+
+- 总共有 n 个元素。
+- 每个循环长度 = n / gcd(n, k)。
+- 那么循环个数 = n ÷ (n / gcd(n, k)) = gcd(n, k)。
+
+---
+
+## 5. 回到你的例子 n=7, k=3
+
+- gcd(7, 3) = 1
+- 循环长度 = 7 / 1 = 7
+- 也就是所有元素在同一个循环里
+- 这就是你算出来的：`0→3→6→2→5→1→4→0`
+
+---
+
+✅ **一句话直观理解**：
+“每次跳 k，其实就是在 0\~n-1 上走一个等差数列 (mod n)。要回到起点，必须走够一个能让 `t×k` 成为 n 的倍数的步数。这个最小的 t 就是 n/gcd(n,k)，于是整个数组分成 gcd(n,k) 个循环。”
+
+---
+
+要不要我帮你画一个 **n=8, k=3** 的完整循环图（下标分布在圆环上，每次跳 3 格），这样你会直观看到 “多个小圈 = gcd” 的结果？

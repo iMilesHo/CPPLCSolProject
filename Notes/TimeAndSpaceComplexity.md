@@ -19,15 +19,16 @@ You can add:
 
 ### ✅ How to Say Big O Notations Clearly:
 
-| Notation     | How to Say It                       | Example                                           |
-| ------------ | ----------------------------------- | ------------------------------------------------- |
-| `O(1)`       | “Constant time”                     | No matter the input size, runtime stays the same. |
-| `O(n)`       | “Oh of n” or “Linear time”          | One loop over all elements.                       |
-| `O(n²)`      | “Oh of n squared”                   | Two nested loops.                                 |
-| `O(n³)`      | “Oh of n cubed”                     | Three nested loops.                               |
-| `O(n⁴)`      | “Oh of n to the fourth”             | Four nested loops.                                |
-| `O(n log n)` | “Oh of n log n”                     | Common in efficient sorting algorithms.           |
-| `O(log n)`   | “Logarithmic time” or “Oh of log n” | Binary search.                                    |
+| Notation     | How to Say It                         | Example                                            |
+| ------------ | ------------------------------------- | -------------------------------------------------- |
+| `O(1)`       | “Constant time”                       | No matter the input size, runtime stays the same.  |
+| `O(n)`       | “Oh of n” or “Linear time”            | One loop over all elements.                        |
+| `O(n²)`      | “Oh of n squared”                     | Two nested loops.                                  |
+| `O(n³)`      | “Oh of n cubed”                       | Three nested loops.                                |
+| `O(n⁴)`      | “Oh of n to the fourth”               | Four nested loops.                                 |
+| `O(n log n)` | “Oh of n log n”                       | Common in efficient sorting algorithms.            |
+| `O(log n)`   | “Logarithmic time” or “Oh of log n”   | Binary search.                                     |
+| `O(2^n)`     | “Exponential time / Oh of 2 to the n” | Algorithms that double with each additional input. |
 
 ---
 
