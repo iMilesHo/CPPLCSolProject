@@ -1,5 +1,3 @@
-**LLM Prompt:**
-
 I’m preparing for technical interviews. Please provide a systematic review of my solution to the problem below, along with improvements and follow-up practice.
 
 #### 2 · My Code (C++)
