@@ -94,6 +94,6 @@
     "scminput": false,
     "python": true,
     "html": true,
-    "cpp": true
+    "cpp": false
   }
 }
