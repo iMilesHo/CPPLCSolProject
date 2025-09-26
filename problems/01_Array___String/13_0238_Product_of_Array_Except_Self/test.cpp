@@ -2,6 +2,6 @@
 #include "Solution.h"
 
 TEST(Problem238Test, BasicTest) {
-    Solution sol;
-    // TODO: Add your basic tests here
+    std::vector<int> ans{1,2,3,0};
+    std::cout<< "ans count = " << ans.count(0) << std::endl;
 }

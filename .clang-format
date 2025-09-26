@@ -1,0 +1,61 @@
+# C++ 代码格式化规则配置
+# 基于 Google 风格，并做了一些调整以适合 LeetCode 风格
+
+BasedOnStyle: Google
+
+# 缩进配置
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# 大括号风格 - Allman 风格（大括号单独一行）
+BreakBeforeBraces: Allman
+
+# 列宽限制 - 紧凑风格
+ColumnLimit: 80
+
+# 指针和引用对齐
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+# 函数参数和调用 - 紧凑对齐风格
+AllowAllParametersOfDeclarationOnNextLine: false
+BinPackParameters: false
+AllowAllArgumentsOnNextLine: false
+BinPackArguments: false
+AlignAfterOpenBracket: Align
+
+# 构造函数初始化列表
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerIndentWidth: 4
+
+# 访问修饰符缩进
+AccessModifierOffset: -2
+
+# 命名空间缩进
+NamespaceIndentation: None
+
+# 空行
+MaxEmptyLinesToKeep: 2
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+# 注释
+ReflowComments: true
+
+# 排序includes
+SortIncludes: true
+
+# 条件语句
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortLoopsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Empty
+
+# 操作符换行
+BreakBeforeBinaryOperators: None
+BreakBeforeTernaryOperators: true
+
+# 模板
+AlwaysBreakTemplateDeclarations: Yes
+
+# 字符串换行
+BreakStringLiterals: true
