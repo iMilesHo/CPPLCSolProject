@@ -244,6 +244,15 @@ class Solution
 - Monotonic Stack
 
 ```cpp
+/*
+{4, 1, 0, 2, 2, 3}
+{0, 1, 2, 3, 4, 5}
+|
+|     |
+|  |｜｜
+|| |｜｜
+-------
+*/
 class Solution
 {
   public:
@@ -263,7 +272,7 @@ class Solution
                 st.pop();
                 if (st.empty()) break;
 
-                int distance = i - st.top() - 1;
+                int distance = i - st.top() - 1; // width
                 int boundedHeight = min(height[i], height[st.top()]) - height[top];
                 water += distance * boundedHeight;
             }

@@ -44,8 +44,8 @@ TEST(Problem42Test, BasicTest)
 
     // 测试用例2: [4,2,0,3,2,5]
     // 预期结果: 9
-    vector<int> height2 = {4, 2, 0, 3, 2, 5};
-    EXPECT_EQ(sol.trap(height2), 9);
+    vector<int> height2 = {4, 1, 0, 2, 2, 3};
+    EXPECT_EQ(sol.trap(height2), 7);
 
     // 边界测试：空数组
     vector<int> empty = {};
