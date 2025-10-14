@@ -1,0 +1,1 @@
+g++ -std=c++17 -Wall -Iinclude -I/opt/homebrew/include playground.cpp -L/opt/homebrew/lib -lgtest -lgtest_main -pthread -o playground_test
