@@ -90,11 +90,11 @@
   "github.copilot.enable": {
     "*": true,
     "plaintext": false,
-    "markdown": false,
+    "markdown": true,
     "scminput": false,
     "python": true,
     "html": true,
-    "cpp": false
+    "cpp": true
   },
   // C++ 格式化配置
   "[cpp]": {
