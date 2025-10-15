@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "solution.hpp"
+#include "practiceSolution.hpp"
 
 TEST(RaceElimination, Example1)
 {
