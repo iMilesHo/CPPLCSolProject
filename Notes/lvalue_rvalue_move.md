@@ -6,7 +6,7 @@ Understanding **lvalue** and **rvalue** is fundamental in C++ (especially for mo
 
 - **lvalue** stands for “**locator value**” (think: location).
 - It represents **an object that has a name and a persistent address in memory**.
-- You can take its address with `&`.
+- You can take its address with `&`(pronounced "and").
 - You can assign a new value to it.
 
 **Examples:**
