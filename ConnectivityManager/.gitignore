@@ -1,0 +1,24 @@
+# 编译产物
+demo_timermanager_before
+demo_timermanager_after
+demo_comparison
+*.o
+*.out
+*.exe
+
+# 构建目录
+build/
+cmake-build-*/
+
+# IDE 配置（可选，根据团队决定是否忽略）
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# 调试文件
+*.dSYM/

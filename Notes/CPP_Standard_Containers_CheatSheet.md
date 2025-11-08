@@ -236,6 +236,8 @@ q.push(2);                 // 入队
 int front = q.front();     // 查看队首
 int back = q.back();       // 查看队尾
 q.pop();                   // 出队
+bool empty = q.empty();    // 检查是否为空
+size_t size = q.size();    // 大小
 ```
 
 ### std::priority_queue - 优先队列 (Priority Queue - Heap)
