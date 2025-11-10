@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/lylehe/Documents/GitHub/CPPLCSolProject/problems/01_Array___String/01_0088_Merge_Sorted_Array",
-      "program": "/Users/lylehe/Documents/GitHub/CPPLCSolProject/problems/01_Array___String/01_0088_Merge_Sorted_Array/build/Debug/outDebug"
+      "cwd": "/Users/lylehe/Documents/GitHub/CPPLCSolProject/playground",
+      "program": "/Users/lylehe/Documents/GitHub/CPPLCSolProject/playground/build/Debug/outDebug"
     }
   ]
 }

@@ -30,8 +30,13 @@
     "-lgtest_main",
     "-pthread"
   ],
-  "C_Cpp_Runner.includePaths": ["/opt/homebrew/include"],
-  "C_Cpp_Runner.includeSearch": ["*", "**/*"],
+  "C_Cpp_Runner.includePaths": [
+    "/opt/homebrew/include"
+  ],
+  "C_Cpp_Runner.includeSearch": [
+    "*",
+    "**/*"
+  ],
   "C_Cpp_Runner.excludeSearch": [
     "**/build",
     "**/.*",
