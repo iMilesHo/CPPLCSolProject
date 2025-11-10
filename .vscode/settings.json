@@ -30,13 +30,8 @@
     "-lgtest_main",
     "-pthread"
   ],
-  "C_Cpp_Runner.includePaths": [
-    "/opt/homebrew/include"
-  ],
-  "C_Cpp_Runner.includeSearch": [
-    "*",
-    "**/*"
-  ],
+  "C_Cpp_Runner.includePaths": ["/opt/homebrew/include"],
+  "C_Cpp_Runner.includeSearch": ["*", "**/*"],
   "C_Cpp_Runner.excludeSearch": [
     "**/build",
     "**/.*",
@@ -62,6 +57,7 @@
   "C_Cpp_Runner.useAddressSanitizer": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
-    "vector": "cpp"
+    "vector": "cpp",
+    "queue": "cpp"
   }
 }
