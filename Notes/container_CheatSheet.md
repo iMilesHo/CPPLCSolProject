@@ -1,4 +1,334 @@
-Here's a structured and concise cheat sheet for common interfaces (member functions) shared across STL containers in C++, followed by specific sheets for unique functions for each container.
+# C++ STL Containers & String 构造方法 + 成员函数 CheatSheet
+
+本文档包含：
+
+1. 各种容器和 string 的构造方法
+2. 常用成员函数接口
+3. STL 算法函数
+
+---
+
+## 一、容器构造方法 CheatSheet
+
+### 1. `std::string` 构造方法
+
+| 构造方式     | 语法                                     | 说明               | 示例                                 |
+| ------------ | ---------------------------------------- | ------------------ | ------------------------------------ |
+| 默认构造     | `string s;`                              | 空字符串           | `string s;` → `""`                   |
+| C 字符串构造 | `string s(const char* str);`             | 从 C 字符串构造    | `string s("hello");` → `"hello"`     |
+| 拷贝构造     | `string s(const string& str);`           | 复制另一个 string  | `string s1("hi"); string s2(s1);`    |
+| 子串构造     | `string s(const string& str, pos, len);` | 从指定位置复制子串 | `string s("hello", 1, 3);` → `"ell"` |
+| 重复字符     | `string s(n, char);`                     | n 个相同字符       | `string s(5, 'a');` → `"aaaaa"`      |
+| 范围构造     | `string s(first, last);`                 | 从迭代器范围构造   | `string s(vec.begin(), vec.end());`  |
+| 初始化列表   | `string s{'h','i'};`                     | C++11 列表初始化   | `string s{'h','e','l','l','o'};`     |
+
+```cpp
+// 示例代码
+string s1;                           // ""
+string s2("Hello");                  // "Hello"
+string s3(s2);                       // "Hello"
+string s4(s2, 1, 3);                 // "ell"
+string s5(5, 'x');                   // "xxxxx"
+vector<char> v{'w','o','r','l','d'};
+string s6(v.begin(), v.end());       // "world"
+string s7{'C','+','+'};              // "C++"
+```
+
+---
+
+### 2. `std::vector` 构造方法
+
+| 构造方式    | 语法                        | 说明                 | 示例                                   |
+| ----------- | --------------------------- | -------------------- | -------------------------------------- |
+| 默认构造    | `vector<T> v;`              | 空 vector            | `vector<int> v;` → `{}`                |
+| 指定大小    | `vector<T> v(n);`           | n 个默认值元素       | `vector<int> v(5);` → `{0,0,0,0,0}`    |
+| 指定大小+值 | `vector<T> v(n, val);`      | n 个值为 val 的元素  | `vector<int> v(5, 3);` → `{3,3,3,3,3}` |
+| 拷贝构造    | `vector<T> v(v2);`          | 复制另一个 vector    | `vector<int> v2(v1);`                  |
+| 范围构造    | `vector<T> v(first, last);` | 从迭代器范围构造     | `vector<int> v(arr, arr+5);`           |
+| 初始化列表  | `vector<T> v{...};`         | C++11 列表初始化     | `vector<int> v{1,2,3,4,5};`            |
+| assign 方法 | `v.assign(n, val);`         | 重新分配为 n 个 val  | `v.assign(3, 7);` → `{7,7,7}`          |
+| assign 范围 | `v.assign(first, last);`    | 从迭代器范围重新分配 | `v.assign(arr, arr+3);`                |
+
+```cpp
+// 示例代码
+vector<int> v1;                      // {}
+vector<int> v2(5);                   // {0,0,0,0,0}
+vector<int> v3(5, 10);               // {10,10,10,10,10}
+vector<int> v4(v3);                  // {10,10,10,10,10}
+int arr[] = {1,2,3};
+vector<int> v5(arr, arr+3);          // {1,2,3}
+vector<int> v6{1,2,3,4,5};           // {1,2,3,4,5}
+vector<int> v7;
+v7.assign(4, 9);                     // {9,9,9,9}
+
+// 二维 vector 构造
+vector<vector<int>> matrix(3, vector<int>(4, 0));  // 3×4 矩阵，全为 0
+```
+
+---
+
+### 3. `std::deque` 构造方法
+
+| 构造方式    | 语法                        | 说明                | 示例                                 |
+| ----------- | --------------------------- | ------------------- | ------------------------------------ |
+| 默认构造    | `deque<T> dq;`              | 空 deque            | `deque<int> dq;`                     |
+| 指定大小    | `deque<T> dq(n);`           | n 个默认值元素      | `deque<int> dq(5);`                  |
+| 指定大小+值 | `deque<T> dq(n, val);`      | n 个值为 val 的元素 | `deque<int> dq(5, 2);`               |
+| 拷贝构造    | `deque<T> dq(dq2);`         | 复制另一个 deque    | `deque<int> dq2(dq1);`               |
+| 范围构造    | `deque<T> dq(first, last);` | 从迭代器范围构造    | `deque<int> dq(v.begin(), v.end());` |
+| 初始化列表  | `deque<T> dq{...};`         | C++11 列表初始化    | `deque<int> dq{1,2,3};`              |
+
+```cpp
+// 示例代码
+deque<int> dq1;                      // {}
+deque<int> dq2(5);                   // {0,0,0,0,0}
+deque<int> dq3(3, 7);                // {7,7,7}
+deque<int> dq4{1,2,3,4};             // {1,2,3,4}
+```
+
+---
+
+### 4. `std::list` (双向链表) 构造方法
+
+| 构造方式    | 语法                        | 说明                | 示例                                 |
+| ----------- | --------------------------- | ------------------- | ------------------------------------ |
+| 默认构造    | `list<T> lst;`              | 空 list             | `list<int> lst;`                     |
+| 指定大小    | `list<T> lst(n);`           | n 个默认值元素      | `list<int> lst(5);`                  |
+| 指定大小+值 | `list<T> lst(n, val);`      | n 个值为 val 的元素 | `list<int> lst(5, 1);`               |
+| 拷贝构造    | `list<T> lst(lst2);`        | 复制另一个 list     | `list<int> lst2(lst1);`              |
+| 范围构造    | `list<T> lst(first, last);` | 从迭代器范围构造    | `list<int> lst(v.begin(), v.end());` |
+| 初始化列表  | `list<T> lst{...};`         | C++11 列表初始化    | `list<int> lst{1,2,3};`              |
+
+```cpp
+// 示例代码
+list<int> lst1;                      // {}
+list<int> lst2(4);                   // {0,0,0,0}
+list<int> lst3(3, 5);                // {5,5,5}
+list<int> lst4{10,20,30};            // {10,20,30}
+```
+
+---
+
+### 5. `std::set` / `std::multiset` 构造方法
+
+| 构造方式     | 语法                     | 说明               | 示例                                   |
+| ------------ | ------------------------ | ------------------ | -------------------------------------- |
+| 默认构造     | `set<T> s;`              | 空 set             | `set<int> s;`                          |
+| 范围构造     | `set<T> s(first, last);` | 从迭代器范围构造   | `set<int> s(v.begin(), v.end());`      |
+| 拷贝构造     | `set<T> s(s2);`          | 复制另一个 set     | `set<int> s2(s1);`                     |
+| 初始化列表   | `set<T> s{...};`         | C++11 列表初始化   | `set<int> s{3,1,4,1,5};` → `{1,3,4,5}` |
+| 自定义比较器 | `set<T, Comp> s;`        | 使用自定义比较函数 | `set<int, greater<int>> s;`            |
+
+```cpp
+// 示例代码
+set<int> s1;                         // {}
+vector<int> v{4,2,3,2,1};
+set<int> s2(v.begin(), v.end());     // {1,2,3,4} (自动去重排序)
+set<int> s3{5,3,8,3,1};              // {1,3,5,8}
+set<int, greater<int>> s4{1,3,2};    // {3,2,1} (降序)
+
+// multiset 允许重复
+multiset<int> ms{1,2,2,3};           // {1,2,2,3}
+```
+
+---
+
+### 6. `std::unordered_set` / `std::unordered_multiset` 构造方法
+
+| 构造方式   | 语法                                | 说明                     | 示例                                         |
+| ---------- | ----------------------------------- | ------------------------ | -------------------------------------------- |
+| 默认构造   | `unordered_set<T> us;`              | 空 unordered_set         | `unordered_set<int> us;`                     |
+| 范围构造   | `unordered_set<T> us(first, last);` | 从迭代器范围构造         | `unordered_set<int> us(v.begin(), v.end());` |
+| 拷贝构造   | `unordered_set<T> us(us2);`         | 复制另一个 unordered_set | `unordered_set<int> us2(us1);`               |
+| 初始化列表 | `unordered_set<T> us{...};`         | C++11 列表初始化         | `unordered_set<int> us{1,2,3};`              |
+| 指定桶数量 | `unordered_set<T> us(n);`           | 预留 n 个桶              | `unordered_set<int> us(100);`                |
+
+```cpp
+// 示例代码
+unordered_set<int> us1;              // {}
+unordered_set<int> us2{4,2,3,2,1};   // {1,2,3,4} (无序,去重)
+vector<int> v{5,3,5,1};
+unordered_set<int> us3(v.begin(), v.end());  // {1,3,5}
+```
+
+---
+
+### 7. `std::map` / `std::multimap` 构造方法
+
+| 构造方式     | 语法                           | 说明               | 示例                                  |
+| ------------ | ------------------------------ | ------------------ | ------------------------------------- |
+| 默认构造     | `map<K,V> m;`                  | 空 map             | `map<string,int> m;`                  |
+| 范围构造     | `map<K,V> m(first, last);`     | 从迭代器范围构造   | `map<int,int> m(v.begin(), v.end());` |
+| 拷贝构造     | `map<K,V> m(m2);`              | 复制另一个 map     | `map<string,int> m2(m1);`             |
+| 初始化列表   | `map<K,V> m{{k1,v1},{k2,v2}};` | C++11 列表初始化   | `map<string,int> m{{"a",1},{"b",2}};` |
+| 自定义比较器 | `map<K,V,Comp> m;`             | 使用自定义比较函数 | `map<int,int,greater<int>> m;`        |
+
+```cpp
+// 示例代码
+map<string, int> m1;                 // {}
+map<string, int> m2{{"apple",1}, {"banana",2}};  // {{"apple",1}, {"banana",2}}
+map<int, string> m3(m2.begin(), m2.end());
+map<int, int, greater<int>> m4;      // 键降序排列
+
+// multimap 允许键重复
+multimap<string, int> mm{{"a",1}, {"a",2}};  // 允许重复键
+```
+
+---
+
+### 8. `std::unordered_map` / `std::unordered_multimap` 构造方法
+
+| 构造方式   | 语法                                  | 说明                     | 示例                                             |
+| ---------- | ------------------------------------- | ------------------------ | ------------------------------------------------ |
+| 默认构造   | `unordered_map<K,V> um;`              | 空 unordered_map         | `unordered_map<string,int> um;`                  |
+| 范围构造   | `unordered_map<K,V> um(first, last);` | 从迭代器范围构造         | `unordered_map<int,int> um(v.begin(), v.end());` |
+| 拷贝构造   | `unordered_map<K,V> um(um2);`         | 复制另一个 unordered_map | `unordered_map<string,int> um2(um1);`            |
+| 初始化列表 | `unordered_map<K,V> um{{k1,v1}};`     | C++11 列表初始化         | `unordered_map<string,int> um{{"x",1}};`         |
+| 指定桶数量 | `unordered_map<K,V> um(n);`           | 预留 n 个桶              | `unordered_map<string,int> um(100);`             |
+
+```cpp
+// 示例代码
+unordered_map<string, int> um1;      // {}
+unordered_map<string, int> um2{{"key1",10}, {"key2",20}};
+unordered_map<int, string> um3(100); // 预留100个桶优化性能
+```
+
+---
+
+### 9. `std::stack` 构造方法 (容器适配器)
+
+| 构造方式     | 语法                       | 说明                   | 示例                                 |
+| ------------ | -------------------------- | ---------------------- | ------------------------------------ |
+| 默认构造     | `stack<T> stk;`            | 空栈（默认基于 deque） | `stack<int> stk;`                    |
+| 指定底层容器 | `stack<T, Container> stk;` | 使用指定容器           | `stack<int, vector<int>> stk;`       |
+| 从容器构造   | `stack<T> stk(container);` | 从底层容器复制构造     | `stack<int> stk(deque<int>{1,2,3});` |
+
+```cpp
+// 示例代码
+stack<int> stk1;                     // 默认 deque 作底层
+stack<int, vector<int>> stk2;        // vector 作底层
+deque<int> dq{1,2,3};
+stack<int> stk3(dq);                 // 从 deque 构造
+```
+
+---
+
+### 10. `std::queue` 构造方法 (容器适配器)
+
+| 构造方式     | 语法                     | 说明                     | 示例                               |
+| ------------ | ------------------------ | ------------------------ | ---------------------------------- |
+| 默认构造     | `queue<T> q;`            | 空队列（默认基于 deque） | `queue<int> q;`                    |
+| 指定底层容器 | `queue<T, Container> q;` | 使用指定容器             | `queue<int, list<int>> q;`         |
+| 从容器构造   | `queue<T> q(container);` | 从底层容器复制构造       | `queue<int> q(deque<int>{1,2,3});` |
+
+```cpp
+// 示例代码
+queue<int> q1;                       // 默认 deque 作底层
+queue<int, list<int>> q2;            // list 作底层
+```
+
+---
+
+### 11. `std::priority_queue` 构造方法 (容器适配器)
+
+| 构造方式     | 语法                                           | 说明                      | 示例                                                 |
+| ------------ | ---------------------------------------------- | ------------------------- | ---------------------------------------------------- |
+| 默认构造     | `priority_queue<T> pq;`                        | 最大堆（默认基于 vector） | `priority_queue<int> pq;`                            |
+| 范围构造     | `priority_queue<T> pq(first, last);`           | 从迭代器范围构造          | `priority_queue<int> pq(v.begin(), v.end());`        |
+| 最小堆       | `priority_queue<T, vector<T>, greater<T>> pq;` | 使用 greater 构造最小堆   | `priority_queue<int, vector<int>, greater<int>> pq;` |
+| 自定义比较器 | `priority_queue<T, Container, Comp> pq;`       | 自定义比较函数            | 见下方示例                                           |
+
+```cpp
+// 示例代码
+priority_queue<int> pq1;             // 最大堆
+pq1.push(3); pq1.push(1); pq1.push(5);
+pq1.top();                           // 5
+
+// 最小堆
+priority_queue<int, vector<int>, greater<int>> pq2;
+pq2.push(3); pq2.push(1); pq2.push(5);
+pq2.top();                           // 1
+
+// 从范围构造
+vector<int> v{4,2,5,1};
+priority_queue<int> pq3(v.begin(), v.end());  // 最大堆
+
+// 自定义比较器
+auto cmp = [](int a, int b) { return a > b; }; // 最小堆
+priority_queue<int, vector<int>, decltype(cmp)> pq4(cmp);
+```
+
+---
+
+### 12. `std::array` 构造方法 (C++11)
+
+| 构造方式   | 语法                             | 说明                             | 示例                           |
+| ---------- | -------------------------------- | -------------------------------- | ------------------------------ |
+| 默认构造   | `array<T, N> arr;`               | 未初始化（基本类型）或默认初始化 | `array<int, 5> arr;`           |
+| 聚合初始化 | `array<T, N> arr = {v1,v2,...};` | 初始化列表                       | `array<int, 3> arr = {1,2,3};` |
+| 统一初始化 | `array<T, N> arr{v1,v2,...};`    | C++11 花括号初始化               | `array<int, 3> arr{1,2,3};`    |
+| fill 填充  | `arr.fill(val);`                 | 填充所有元素为 val               | `arr.fill(0);`                 |
+
+```cpp
+// 示例代码
+array<int, 5> arr1;                  // 未初始化
+array<int, 5> arr2 = {1,2,3,4,5};    // {1,2,3,4,5}
+array<int, 3> arr3{10,20,30};        // {10,20,30}
+array<int, 4> arr4{};                // {0,0,0,0} (值初始化)
+arr4.fill(7);                        // {7,7,7,7}
+```
+
+---
+
+### 13. `std::pair` 和 `std::tuple` 构造方法
+
+#### `std::pair` 构造
+
+```cpp
+// 方式1: 默认构造
+pair<int, string> p1;                // {0, ""}
+
+// 方式2: 直接初始化
+pair<int, string> p2(1, "hello");    // {1, "hello"}
+
+// 方式3: make_pair
+auto p3 = make_pair(42, "world");    // {42, "world"}
+
+// 方式4: 列表初始化
+pair<int, string> p4{100, "test"};   // {100, "test"}
+
+// 访问
+p4.first;   // 100
+p4.second;  // "test"
+```
+
+#### `std::tuple` 构造
+
+```cpp
+// 方式1: 默认构造
+tuple<int, double, string> t1;       // {0, 0.0, ""}
+
+// 方式2: 直接初始化
+tuple<int, double, string> t2(1, 3.14, "pi");
+
+// 方式3: make_tuple
+auto t3 = make_tuple(42, 2.71, "e");
+
+// 方式4: 列表初始化
+tuple<int, double, string> t4{100, 1.5, "test"};
+
+// 访问
+get<0>(t4);  // 100
+get<1>(t4);  // 1.5
+get<2>(t4);  // "test"
+
+// C++17 结构化绑定
+auto [a, b, c] = t4;  // a=100, b=1.5, c="test"
+```
+
+---
+
+## 二、容器成员函数 CheatSheet
 
 ---
 
