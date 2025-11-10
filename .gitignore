@@ -31,5 +31,14 @@
 *.out
 *.app
 
+# 构建目录
 build/*
+output/*
+
+# macOS
 .DS_Store
+
+# VS Code 编译生成的可执行文件（在 test.cpp 所在目录）
+problems/**/test
+playground/playground
+playground/test

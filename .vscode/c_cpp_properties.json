@@ -1,18 +1,18 @@
 {
   "configurations": [
     {
-      "name": "Mac",
+      "name": "macos-gcc-arm64",
       "includePath": [
         "${workspaceFolder}/**",
-        "${workspaceFolder}/include",
         "/opt/homebrew/include"
       ],
-      "defines": [],
-      "compilerPath": "/usr/bin/clang",
+      "compilerPath": "/usr/bin/gcc",
       "cStandard": "c17",
       "cppStandard": "c++17",
-      "intelliSenseMode": "macos-clang-arm64",
-      "configurationProvider": "ms-vscode.makefile-tools"
+      "intelliSenseMode": "macos-gcc-arm64",
+      "compilerArgs": [
+        ""
+      ]
     }
   ],
   "version": 4
